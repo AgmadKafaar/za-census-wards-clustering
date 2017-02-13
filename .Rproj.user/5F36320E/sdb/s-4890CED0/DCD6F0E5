@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "* Identify tables of interest\n* Copy tables to SQLite db\n* Bring in all ward tables for clustering. Flatten and merge and normalise.",
+    "created" : 1486442795778.000,
+    "dirty" : true,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "3452889579",
+    "id" : "DCD6F0E5",
+    "lastKnownWriteTime" : 4322450672,
+    "last_content_update" : 1486442960070,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 1,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "text"
+}

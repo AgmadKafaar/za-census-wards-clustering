@@ -1,0 +1,9 @@
+{
+    "path" : "~/Work/Data/za-census-ward-clustering/similar-za-census-wards/data",
+    "sortOrder" : [
+        {
+            "ascending" : true,
+            "columnIndex" : 2
+        }
+    ]
+}

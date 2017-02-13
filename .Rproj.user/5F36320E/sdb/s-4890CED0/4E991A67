@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "require(RPostgreSQL)\nrequire(RSQLite)\n\nwardTables <- c(\"accesstointernet\", \n                \"agegroupsin5years\",\n                \"annualhouseholdincomeunder18\",\n                \"employedindividualmonthlyincome\",\n                \"language\",\n                \"population\",\n                \"populationgroup\",\n                \"officialemploymentstatus\",\n                \"wazimap_geography\")\n\n\nreadWardTable <- function(connection, tableName) {\n  result <- dbGetQuery(connection, sprintf(\"select * from %s where geo_level = 'ward';\", tableName))\n  names(result) <- gsub(\" \", \"_\", names(result)) # Wazimap favours table names with spaces.\n  result\n}\n\nwazimapConnection <- dbConnect(drv, dbname = \"wazimap\",\n                               host = \"localhost\", port = 5432,\n                               user = \"wazimap\", password = \"wazimap\")\n\nsqliteCon <- dbConnect(SQLite(), dbname='similar-za-census-wards/data/za-census.sqlite')\n\nfor (tableName in wardTables) {\n  dbWriteTable(sqliteCon, name = tableName, value = readWardTable(wazimapConnection, tableName), row.names = FALSE)\n}\n",
+    "created" : 1486443340067.000,
+    "dirty" : true,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3184749018",
+    "id" : "4E991A67",
+    "lastKnownWriteTime" : 1486797515,
+    "last_content_update" : 1486804167926,
+    "path" : "~/Work/Data/za-census-ward-clustering/src/copy_census_data_to_sqlite.R",
+    "project_path" : "src/copy_census_data_to_sqlite.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 2,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

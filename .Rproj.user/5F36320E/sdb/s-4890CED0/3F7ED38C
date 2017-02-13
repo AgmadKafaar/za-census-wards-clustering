@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "normaliseCounts <- function(wardData) {\n  wardData[, WardTotal := sum(total), by = .(geo_code)]\n  wardData[, Percentage := total/WardTotal]\n  wardData\n}\n\nflattenValues <- function(wardData, columnName, prefix) {\n  wardData[, variable := paste(prefix, gsub(\" |\\\\-\", \"_\", get(columnName)), sep = \"_\")]\n  dcast(wardData, formula = geo_code ~ variable, value.var = \"Percentage\")\n}\n\nmergeAll <- function(x, dataFrames, by) {\n  result <- x\n  for (df in dataFrames) {\n    result <- merge(result, df, by = by)\n  }\n  \n  result\n}\n\naccessToInternetFlattened <- flattenValues(normaliseCounts(accessToInternet), \n                                           columnName = \"access_to_internet\",\n                                           prefix = \"internet\")\nageGroupsFlattened <- flattenValues(normaliseCounts(ageGroups),\n                                    columnName = \"age_groups_in_5_years\",\n                                    prefix = \"age\")\nmonthlyIncomeFlattened <- flattenValues(normaliseCounts(employedMonthlyIncome),\n                                        columnName = \"employed_individual_monthly_income\",\n                                        prefix = \"income\")\nlanguageFlattened <- flattenValues(normaliseCounts(language),\n                                   columnName = \"language\",\n                                   prefix = \"language\")\npopulation[, scaledPopulation := scale(population)]\npopulationGroupFlattened <- flattenValues(normaliseCounts(populationGroup),\n                                          columnName = \"population_group\",\n                                          prefix = \"population_group\")\nemploymentStatusFlattened <- flattenValues(normaliseCounts(employmentStatus),\n                                           columnName = \"official_employment_status\",\n                                           prefix = \"employment_status\")\n\nwards <- mergeAll(population, \n                  list(accessToInternetFlattened,\n                       ageGroupsFlattened,\n                       monthlyIncomeFlattened,\n                       languageFlattened,\n                       populationGroupFlattened,\n                       employmentStatusFlattened),\n                  by = \"geo_code\")",
+    "created" : 1486797552099.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3389165305",
+    "id" : "3F7ED38C",
+    "lastKnownWriteTime" : 1486879147,
+    "last_content_update" : 1486879147219,
+    "path" : "~/Work/Data/za-census-ward-clustering/munge/02-normalise-and-cast.R",
+    "project_path" : "munge/02-normalise-and-cast.R",
+    "properties" : {
+        "tempName" : "Untitled2"
+    },
+    "relative_order" : 5,
+    "source_on_save" : true,
+    "source_window" : "",
+    "type" : "r_source"
+}

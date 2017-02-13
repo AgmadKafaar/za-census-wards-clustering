@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "require(data.table)\nrequire(RSQLite)\n# Example preprocessing script.\n\n# \"accesstointernet\", \n# \"agegroupsin5years\",\n# \"annualhouseholdincomeunder18\",\n# \"employedindividualmonthlyincome\",\n# \"language\",\n# \"population\",\n# \"populationgroup\",\n# \"officialemploymentstatus\"\n\nsqliteCon <- dbConnect(SQLite(), dbname='similar-za-census-wards/data/za-census.sqlite')\n\naccessToInternet <- readTable(sqliteCon, \"accesstointernet\")\nageGroups <- readTable(sqliteCon, \"agegroupsin5years\")\nemployedMonthlyIncome <- readTable(sqliteCon, \"employedindividualmonthlyincome\")\nlanguage <- readTable(sqliteCon, \"language\")\npopulation <- readTable(sqliteCon, \"population\")\npopulationGroup <- readTable(sqliteCon, \"populationgroup\")\nemploymentStatus <- readTable(sqliteCon, \"officialemploymentstatus\")",
+    "created" : 1486804130414.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2246063798",
+    "id" : "9A65D8B5",
+    "lastKnownWriteTime" : 1486805284,
+    "last_content_update" : 1486805284315,
+    "path" : "~/Work/Data/za-census-ward-clustering/munge/01-read-census-data.R",
+    "project_path" : "munge/01-read-census-data.R",
+    "properties" : {
+    },
+    "relative_order" : 6,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

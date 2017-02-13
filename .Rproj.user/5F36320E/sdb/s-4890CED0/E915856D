@@ -1,0 +1,29 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1486961763515.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "E915856D",
+    "lastKnownWriteTime" : 4294967302,
+    "last_content_update" : 1486961763515,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "B029A8C1",
+        "caption" : "wazimapGeo[geo_code %in% c(\"52502023\", \"52302025\")]",
+        "contentUrl" : "grid_resource/gridviewer.html?env=_rs_no_env&obj=&cache_key=B029A8C1",
+        "displayedObservations" : 2,
+        "environment" : "_rs_no_env",
+        "object" : "",
+        "preview" : 0,
+        "totalObservations" : 2,
+        "variables" : 9
+    },
+    "relative_order" : 8,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

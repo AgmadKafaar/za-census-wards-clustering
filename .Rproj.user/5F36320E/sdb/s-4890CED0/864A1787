@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "readTable <- function(connection, tableName) {\n  data.table(dbGetQuery(connection, sprintf(\"SELECT * FROM %s;\", tableName)))\n}\n",
+    "created" : 1486804231935.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3939872059",
+    "id" : "864A1787",
+    "lastKnownWriteTime" : 1486804299,
+    "last_content_update" : 1486804299262,
+    "path" : "~/Work/Data/za-census-ward-clustering/lib/helpers.R",
+    "project_path" : "lib/helpers.R",
+    "properties" : {
+    },
+    "relative_order" : 7,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
