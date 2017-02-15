@@ -7,6 +7,13 @@ chunk <- function(x, chunkSize) {
                labels=FALSE))
 }
 
+mergeGeojson <- function(geojson) {
+  features <- gsub('(^\\{"features"\\: \\[)|(\\], "type"\\: "FeatureCollection"\\}$)', # 
+                   ' ',
+                   geojson)
+  paste('{"features": [', paste(geojson, collapse = ","), '], "type": "FeatureCollection"}')
+}
+
 # Annoyingly mapit doesn't resolve geojson for all the ward codes in the census, so we need to extract the available ward codes
 wardSummaries <- GET("https://mapit.code4sa.org/areas/WD") %>% content(as = "text")
 wardCodes <- str_match_all(pattern = '"MDB"\\: "(.*?)"', wardSummaries)[[1]][,2]
@@ -21,3 +28,5 @@ for (i in seq_along(wardGeojsonRequests)) {
   request <- wardGeojsonRequests[[i]]
   write(content(request, as = "text"), file = sprintf("data/wards-%s.geojson", i))
 }
+
+geojson <- mergeGeojson(sapply(wardGeojsonRequests, function(x) content(x, as = "text")))
