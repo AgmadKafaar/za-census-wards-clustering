@@ -6,11 +6,12 @@ features <- grep("(^age)|(language)|(population_)|(employment)|(income)|(interne
 completeWards <- wards[complete.cases(wards)]
 
 set.seed(20170215)
-wardClustersKmeans15 <- kmeans(completeWards[, features, with=FALSE], centers = 15)
+wardClustersKmeans30 <- kmeans(completeWards[, features, with=FALSE], centers = 40)
 wardClusters <- data.table(geo_code = completeWards$geo_code, 
                            cluster_id = wardClustersKmeans15$cluster)
 
 dbWriteTable(sqliteCon, 
              name = "ward_clusters", 
              value = wardClusters, 
-             row.names = FALSE)
+             row.names = FALSE,
+             overwrite=TRUE)

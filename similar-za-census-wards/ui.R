@@ -18,10 +18,10 @@ navbarPage("Discover Similar Wards", id="nav",
                                       draggable = TRUE, top = 60, left = "auto", right = 20, bottom = "auto",
                                       width = 330, height = "auto",
                                       
-                                      h2("ZIP explorer")),
-                                      
-                                      plotOutput("histCentile", height = 200),
-                                      plotOutput("scatterCollegeIncome", height = 250)
+                                      h2("Ward Data"),
+                                      p("Hello World!"),
+                                      plotOutput("incomeBarplot", height = 200),
+                                      plotOutput("scatterCollegeIncome", height = 250))
                         )
            ),
            

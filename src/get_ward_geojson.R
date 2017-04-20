@@ -32,7 +32,7 @@ wardGeojsonRequests <- lapply(chunk(metroWardCodes, 300), function(wardCodes) {
 })
 
 for (i in seq_along(wardGeojsonRequests)) {
-  request <- wardGeojsonRequests[[i]]
+  request <- wardGeojsonx <- Requests[[i]]
   write(content(request, as = "text"), file = sprintf("data/wards-%s.geojson", i))
 }
 
